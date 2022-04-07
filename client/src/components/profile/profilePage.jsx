@@ -2,7 +2,9 @@
 
 function ProfilePage() {
     return ( 
-        <section className="profilePage"></section>
+        <section className="profilePage">
+            <figure></figure>
+        </section>
     );
 }
 
