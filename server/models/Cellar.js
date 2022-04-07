@@ -9,7 +9,6 @@ Cellar.init(
        id: {
            type: DataTypes.INTEGER,
            allowNull: false,
-           defaultValue: UUIDV4,
            primaryKey: true,
         },
         size: {
