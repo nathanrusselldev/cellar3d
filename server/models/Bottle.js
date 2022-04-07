@@ -12,14 +12,6 @@ Bottle.init(
            autoIncrement: true,
            primaryKey: true,
         },
-       cellarId: {
-           type: DataTypes.INTEGER,
-           allowNull: false,
-        },
-       userId: {
-           type: DataTypes.STRING,
-           allowNull: false,
-        },
        position: {
            type: DataTypes.INTEGER,
            allowNull: false,
