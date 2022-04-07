@@ -7,6 +7,11 @@ const resolvers = {
       return User.find().populate('bottle');
     },
   },
+  Mutation: {
+    createUser: async () => {
+      return 
+    }
+  }
 }
 
 

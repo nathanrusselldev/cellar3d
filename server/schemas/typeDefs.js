@@ -14,7 +14,7 @@ const typeDefs = gql`
   }
 
   type Bottle {
-    _id: ID 
+    _id: ID
     cellarId: Int
     userId: Int
     position: Int
@@ -28,6 +28,9 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
+  }
+  type Mutation {
+    createUser( username: String!, email: String!, password: String!)
   }
 
   
