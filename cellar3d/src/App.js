@@ -1,8 +1,10 @@
-import './App.css';
+// import the require npm packages for the functionality of the application
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// import our pages for the routing section of the application
 import Homepage from './components/homepage/homePage';
+
 
 const client = new ApolloClient({
   uri: '/graphql',
