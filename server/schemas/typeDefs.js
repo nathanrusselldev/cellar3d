@@ -16,6 +16,11 @@ const typeDefs = gql`
     size: String
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Bottle {
     _id: ID
     cellarId: Int
@@ -29,13 +34,15 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
-    user(username: String!): User
+    users: [User]!
+    user(userid: ID!): User
+    me: User
   }
+
   type Mutation {
     createUser( username: String!, email: String!, first_name: String!, last_name: String!, password: String!): User
+    login(username: String!, password: String!): Auth
 
-    login(username: String!, password: String!): User
   }
 
 
