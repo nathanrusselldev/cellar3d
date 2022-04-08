@@ -20,10 +20,12 @@ function Navbar() {
             </nav>
         )
     } else {
-        <nav>
-            <NavButton {...navInnerContent.signUp} />
-            <NavButton {...navInnerContent.login} />
-        </nav>
+        return (
+            <nav>
+                <NavButton {...navInnerContent.signUp} />
+                <NavButton {...navInnerContent.login} />
+            </nav>
+        )
     }
 }
 
