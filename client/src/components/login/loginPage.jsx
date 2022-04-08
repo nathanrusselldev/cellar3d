@@ -27,7 +27,7 @@ function LoginPage(){
         };
 */
 
-
+        
 
     return (
         <section className="loginPage">
