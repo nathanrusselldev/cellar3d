@@ -7,13 +7,18 @@ const resolvers = {
     users: async () => {
       return User.find().populate('bottle');
     },
+    me: async (parent, args, context) => {
+      if(context.user) {
+        return User.findOne({id: context.user.id})
+      }
+    }
   },
   Mutation: {
     createUser: async (parent, args, context, info) => {
       const user = await User.create(args);
       const cellar = await Cellar.create({userId: user.id, })
       const token = signToken(user);
-      return await User.findByPk (user.id, {include: [{model: Cellar}]})
+      return {user: await User.findByPk (user.id, {include: [{model: Cellar}]}), token}
     },
     login: async (parent, {username, password}) => {
       const user = await User.findOne({ username })
