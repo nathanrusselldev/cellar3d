@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import DevNav from './components/devNav/devNav';
+import Navbar from './components/navbar/navbar';
 import Homepage from './components/homepage/homePage';
 import SignUpPage from './components/signup/signupPage';
 import LoginPage from './components/login/loginPage';
@@ -18,7 +18,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <DevNav />
+        <Navbar />
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginPage />} />
