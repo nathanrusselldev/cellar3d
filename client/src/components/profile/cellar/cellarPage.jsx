@@ -1,7 +1,11 @@
+import CellarItem from "./cellarItem";
+
 
 function CellarPage() {
     return ( 
-        <section className="cellarPage"></section>
+        <section className="cellarPage">
+            <CellarItem />
+        </section>
      );
 }
 

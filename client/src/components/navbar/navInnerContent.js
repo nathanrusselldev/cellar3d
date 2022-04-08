@@ -1,4 +1,5 @@
 // page to edit the information for the inner content for the nav buttons.
+import Auth from '../../utils/auth'
 
 const navInnerContent = {
     home: {
@@ -15,7 +16,7 @@ const navInnerContent = {
     },
     logout: {
         content: 'Logout',
-        sendTo: `/`
+        sendTo: `/`,
     },
     profile: {
         content: `Profile`,
