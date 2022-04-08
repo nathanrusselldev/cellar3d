@@ -25,6 +25,7 @@ const typeDefs = gql`
     _id: ID
     cellarId: Int
     userId: Int
+    name: String
     position: Int
     type: String
     vintage: String
