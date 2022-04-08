@@ -57,9 +57,6 @@ User.init(
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       },
-      isCorrectPassword:  async (password) => {
-        return bcrypt.compare(password, this.password);
-      },
     },
     sequelize,
     timestamps: true,
