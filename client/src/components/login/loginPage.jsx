@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/client"
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import Auth from "../../../../server/utils/auth"
+import Auth from "../../utils/auth"
 import { LOGIN } from '../../utils/mutations'
 
 function LoginPage(){
@@ -36,9 +36,9 @@ function LoginPage(){
             <p>Happy to see you again</p>
             <form id="signInForm" onSubmit={handleFormSubmit}>
                 <label htmlFor="username">Username</label>
-                <input type="text" name="username" required="required" placeholder="Username or Email"  handleChange={handleChange} />
+                <input type="text" name="username" required="required" placeholder="Username or Email"  onChange={handleChange} />
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" required="required" placeholder="password" handleChange={handleChange} />
+                <input type="password" name="password" required="required" placeholder="password" onChange={handleChange} />
                 <input type="submit" value="Log In" />
             </form>
             <p>
