@@ -6,6 +6,8 @@ import Auth from '../../utils/auth'
 function Navbar() {
 
     // check to see if the user is currently logged in and renders the corresponding nav bar buttons for interaction
+    // attach a use effect to it 
+    // convert into a use state
     const loginStatus = Auth.loggedIn();
 
     if (loginStatus) {
@@ -17,7 +19,12 @@ function Navbar() {
                 <NavButton {...navInnerContent.logout} />
             </nav>
         )
-    } else { }
+    } else {
+        <nav>
+            <NavButton {...navInnerContent.signUp} />
+            <NavButton {...navInnerContent.login} />
+        </nav>
+    }
 }
 
 export default Navbar;
