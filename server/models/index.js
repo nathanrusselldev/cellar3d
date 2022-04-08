@@ -3,11 +3,11 @@ const Bottle = require('./Bottle');
 const Cellar = require('./Cellar');
 
 User.hasOne(Cellar, {
-    foreignKey: 'cellarId'
+    foreignKey: 'userId'
 });
 
 User.hasMany(Bottle, {
-    foreignKey: 'bottleId'
+    foreignKey: 'userId'
 });
 
 Cellar.belongsTo(User, {
@@ -23,7 +23,7 @@ Bottle.belongsTo(Cellar, {
 });
 
 Cellar.hasMany(Bottle, {
-    foreignKey: 'bottleId'
+    foreignKey: 'cellarId'
 });
 
 module.exports = { User, Bottle, Cellar };
