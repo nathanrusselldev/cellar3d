@@ -1,12 +1,17 @@
 import CellarItem from "./cellarItem";
+import itemGrid from "./itemGrid";
+import { Link } from "react-router-dom";
+import AssetRouter from "../../../assets/images"; 
 
 function CellarPage() {
-    const itemGrid = {
-        item1: 1
-    }
     return (
         <section className="cellarPage">
-            <CellarItem />
+            <header>
+                <Link className="backToProfile" to='/profile'>
+                    <img src={AssetRouter.backArrow.src} alt={AssetRouter.backArrow.alt}  /> Back To Profile
+                </Link>
+            </header>
+            <CellarItem position={itemGrid.item1} />
         </section>
     );
 }
