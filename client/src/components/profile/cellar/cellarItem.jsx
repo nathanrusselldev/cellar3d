@@ -12,7 +12,7 @@ const tempInfo = {
     notes:`notes`
 }
 
-function CellarItem() {
+function CellarItem({position}) {
     const [itemState, setitemState] = useState(tempInfo)
     const [formState, setFormState] = useState({status:false})
 
@@ -30,7 +30,8 @@ function CellarItem() {
     return ( 
         <article className="cellarItem">
             {/* for each position in a  grid render a buttonj like this one that passes its index */}
-            <button onClick={()=>handleClick(1)}>Some Txt</button>
+            <button onClick={()=>handleClick(position)}>Some Txt</button>
+            {/* When the status is currently set to true, then the form will be opened */}
             {formState.status && <BottleForm/>}
         </article>
         )

@@ -1,12 +1,14 @@
 import CellarItem from "./cellarItem";
 
-
 function CellarPage() {
-    return ( 
+    const itemGrid = {
+        item1: 1
+    }
+    return (
         <section className="cellarPage">
             <CellarItem />
         </section>
-     );
+    );
 }
 
 export default CellarPage;
