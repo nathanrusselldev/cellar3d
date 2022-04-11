@@ -11,6 +11,15 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ id: context.user.id })
       }
+    },
+    bottles: async (parents, args, context) => {
+      if (context.user) {
+        return await Bottle.findAll({
+          where: {
+            userId: context.user.id
+          }
+        })
+      }
     }
   },
   Mutation: {
