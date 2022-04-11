@@ -21,9 +21,11 @@ const resolvers = {
       return { user: await User.findByPk(user.id, { include: [{ model: Cellar }] }), token }
     },
     login: async (parent, { username, password }) => {
-      const user = await User.findOne({ username },
-        { include: [{ model: Cellar }] })
-      console.log(user);
+      const user = await User.findOne({
+        where: { username },
+        include: [{ model: Cellar }]
+      })
+      console.log(user)
       if (!user) {
         throw new AuthenticationError('Incorrect username or password.')
       }
