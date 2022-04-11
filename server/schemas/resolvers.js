@@ -17,12 +17,13 @@ const resolvers = {
     createUser: async (parent, args, context, info) => {
       const user = await User.create(args);
       const cellar = await Cellar.create({userId: user.id, })
-      const token = signToken(user);
+      const token = signToken({...user, cellarId: cellar.id});
       return {user: await User.findByPk (user.id, {include: [{model: Cellar}]}), token}
     },
     login: async (parent, {username, password}) => {
-      const user = await User.findOne({ username })
-
+      const user = await User.findOne({ username },
+        {include: [{ model: Cellar }]})
+      
       if(!user) {
         throw new AuthenticationError('Incorrect username or password.')
       }
@@ -30,11 +31,11 @@ const resolvers = {
       if(!correctPassword) {
         throw new AuthenticationError('Incorrect username or password.');
       }
-      const token = signToken(user);
+      const token = signToken({...user, cellarId: user.cellar.id});
       return {token, user}
     },
     createBottle: async(parent, args, context) => {
-      const newbottle = await Bottle.create({...args, userId: context.user.id})
+      const newbottle = await Bottle.create({...args, userId: context.user.id, cellarId: context.user.cellarId})
       return newbottle
     }
   }
