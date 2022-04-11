@@ -40,3 +40,17 @@ nav {
 .cellarPage header a {
   display:inline-block
 }
+
+.cellarPage .cellarItem {
+  width: calc(100vw / 4 - 5px);
+  display: block;
+  float: left;
+  z-index: 3;
+}
+
+.cellarPage .cellarItem .bottleForm {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  z-index: 15;
+}

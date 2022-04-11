@@ -3,6 +3,8 @@ import itemGrid from "./itemGrid";
 import { Link } from "react-router-dom";
 import AssetRouter from "../../../assets/images"; 
 
+// Create a query to find all .
+
 function CellarPage() {
     return (
         <section className="cellarPage">

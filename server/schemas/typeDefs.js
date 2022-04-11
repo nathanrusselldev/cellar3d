@@ -40,7 +40,6 @@ const typeDefs = gql`
     me: User
     bottles: [Bottle]
     cellar: Cellar
-
   }
 
   type Mutation {
