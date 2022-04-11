@@ -1,4 +1,6 @@
 import { useState } from "react";
+import {useMutation} from '@apollo/client';
+import {CREATE_BOTTLE} from '../../../utils/mutations'
 
 function BottleForm({position}) {
 
@@ -15,6 +17,19 @@ function BottleForm({position}) {
     }
     
     const [formState, setFormState] = useState(initialState)
+    const [createBottle] = useMutation(CREATE_BOTTLE);
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        const mutationResponse = await createBottle({
+            variables: {
+                ...formState,
+            }
+        })
+        window.location.reload()
+    }
+
+    // mutationResponse.data.createBottle model data from the database. 
 
     const handleBottleChange = (event) => {
         const {name, value} = event.target;
@@ -24,14 +39,12 @@ function BottleForm({position}) {
         });
     };
 
-    const handleFormSubmit = (event) => {
-        
-    }
+    
 
     return ( 
         <article className="bottleForm" >
             <h4>Cellar Position : {formState.position}</h4>
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <label htmlFor="name">Name</label>
                 <input 
                     type="text" 

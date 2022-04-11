@@ -28,6 +28,15 @@ mutation login($username:String!, $password:String!) {
 }
 `
 
-export const ADD_WINE = gql`
-mutation addWine()
+export const CREATE_BOTTLE = gql`
+mutation CreateBottle($cellarId: ID!, $userId: ID!, $position: Int!, $name: String, $type: Int, $vintage: Int, $locale: Int, $body: String, $notes: String) {
+  createBottle(cellarId: $cellarId, userId: $userId, position: $position, name: $name, type: $type, vintage: $vintage, locale: $locale, body: $body, notes: $notes) {
+    name
+    type
+    vintage
+    locale
+    body
+    notes
+  }
+}
 `
