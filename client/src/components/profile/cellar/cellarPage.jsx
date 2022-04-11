@@ -17,3 +17,6 @@ function CellarPage() {
 }
 
 export default CellarPage;
+
+// have initial state be set from the db as opposed to hardcoding.
+// 

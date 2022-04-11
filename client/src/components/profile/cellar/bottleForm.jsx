@@ -2,21 +2,11 @@ import { useState } from "react";
 import {useMutation} from '@apollo/client';
 import {CREATE_BOTTLE} from '../../../utils/mutations'
 
-function BottleForm({position}) {
+function BottleForm({position, setItemState, itemState}) {
 
     // I think it would be best if the intial state is set the existing data that exists inside of the database. We could have it be when the 
-    const initialState = {
-        position:position,
-        name:``,
-        type:``,
-        vintage:``,
-        grape:``,
-        locale:``,
-        body:``,
-        notes:``,
-    }
     
-    const [formState, setFormState] = useState(initialState)
+    const [formState, setFormState] = useState(itemState)
     const [createBottle] = useMutation(CREATE_BOTTLE);
 
     const handleFormSubmit = async (event) => {
@@ -24,9 +14,10 @@ function BottleForm({position}) {
         const mutationResponse = await createBottle({
             variables: {
                 ...formState,
+                vintage:parseInt(formState.vintage)
             }
         })
-        window.location.reload()
+        setItemState({...formState})
     }
 
     // mutationResponse.data.createBottle model data from the database. 
@@ -63,7 +54,7 @@ function BottleForm({position}) {
                 />
                 <label htmlFor="vintage">Vintage</label>
                 <input 
-                    type="text" 
+                    type="number" 
                     name="vintage" 
                     id="bottleVintage" 
                     value={formState.vintage}

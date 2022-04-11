@@ -31,7 +31,7 @@ const typeDefs = gql`
     vintage: String
     locale: String
     body: String
-    notes: Int
+    notes: String
   }
 
   type Query {
