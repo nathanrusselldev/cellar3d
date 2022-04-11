@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 function NavButton({content, sendTo, onClick}) {
     if (onClick) {
         return (
-            <button className={content} onClick={onClick}>
+            <button id='nav-item' className={content} onClick={onClick}>
                 {content}
             </button>
         )
     }
     
     return ( 
-        <button>
+        <button id='nav-item'>
             <Link className={content} to={sendTo}>{content}</Link>
         </button> 
     );

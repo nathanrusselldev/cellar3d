@@ -11,7 +11,10 @@ function Navbar() {
 
     if (loginStatus) {
         return (
-            <nav>
+            <nav className="custom-nav">
+                <div className="header">
+                    <h1 className="mainTitle">cellar3d</h1>
+                </div>
                 <NavButton {...navInnerContent.home} />
                 <NavButton {...navInnerContent.profile} />
                 <NavButton {...navInnerContent.cellar} />
@@ -20,7 +23,10 @@ function Navbar() {
         )
     } else {
         return (
-            <nav>
+            <nav className="custom-nav">
+                <div className="header">
+                    <h1 className="mainTitle">cellar3d</h1>
+                </div>
                 <NavButton {...navInnerContent.home} />
                 <NavButton {...navInnerContent.signUp} />
                 <NavButton {...navInnerContent.login} />
