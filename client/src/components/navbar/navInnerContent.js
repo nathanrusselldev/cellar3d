@@ -1,5 +1,4 @@
 // page to edit the information for the inner content for the nav buttons.
-
 const navInnerContent = {
     home: {
         content: `Home`,
@@ -15,7 +14,7 @@ const navInnerContent = {
     },
     logout: {
         content: 'Logout',
-        sendTo: `/`
+        sendTo: `/`,
     },
     profile: {
         content: `Profile`,
