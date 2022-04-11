@@ -22,7 +22,7 @@ const typeDefs = gql`
   }
 
   type Bottle {
-    _id: ID
+    id: ID
     cellarId: Int
     userId: Int
     name: String
@@ -48,7 +48,7 @@ const typeDefs = gql`
     createUser( username: String!, email: String!, first_name: String!, last_name: String!, password: String!): Auth,
     login(username: String!, password: String!): Auth,
     # Cellar Routes
-    createBottle(cellarId: ID!, userId: ID!, name: String,  position: Int!, type: Int, vintage: Int, locale: Int, body: String, notes: String): Bottle
+    createBottle(name: String,  position: Int!, type: String, vintage: Int, locale: String, body: String, notes: String): Bottle
   } 
 `;
 
