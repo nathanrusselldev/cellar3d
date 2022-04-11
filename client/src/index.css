@@ -2,6 +2,9 @@
   --navWidth:100vw;
   --navHeight:65px;
   --fullPageSize: calc(100vh - var(--navHeight));
+  --wineDeepRed: #670A0A;
+  --wineLightRed: #b03138;
+
 }
 
 * {
@@ -15,6 +18,72 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+/* NavBar Class */
+
+.custom-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+}
+
+.mainTitle {
+  font-size: 60px;
+}
+
+.custom-nav a {
+  text-decoration: none;
+}
+
+
+.header {
+  width: 75%;
+}
+
+.heroImage {
+  width: 100%;
+  height: var(--fullPageSize);
+  background-image: url(./assets/images/cellar3dSplash.png);
+  background-size: cover;
+  background-position: center center;
+}
+
+.heroText {
+  color: white;
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+  padding-top: 25%;
+  
+}
+
+
+#nav-item {
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #ed3330;
+	padding: 20px;
+	border-radius: 1px;
+	border: none;
+	transition: all 0.4s ease 0s;
+  width: 100px;
+}
+
+#nav-item:hover {
+	background: var(--wineDeepRed);
+	letter-spacing: 1px;
+	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+	transition: all 0.4s ease 0s;
+}
+
+#nav-item a {
+  color: #fff;
 }
 
 /* Stylization for the cellar page */
