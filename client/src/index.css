@@ -1,8 +1,42 @@
+:root {
+  --navWidth:100vw;
+  --navHeight:65px;
+  --fullPageSize: calc(100vh - var(--navHeight));
+}
+
 * {
   margin:0px;
   padding:0px;
 }
 
 nav {
-  width: 100%;
+  width: var(--navWidth);
+  height: var(--navHeight);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Stylization for the cellar page */
+
+.cellarPage {
+  width:100vw;
+  height:var(--fullPageSize);
+}
+
+.cellarPage header {
+  width: 100vw;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cellarPage header img {
+  height: 65px;
+  display: inline-block;
+}
+
+.cellarPage header a {
+  display:inline-block
 }

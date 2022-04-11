@@ -1,20 +1,26 @@
 import { useState } from "react";
+import {useMutation} from '@apollo/client';
+import {CREATE_BOTTLE} from '../../../utils/mutations'
 
-function BottleForm({position}) {
+function BottleForm({position, setItemState, itemState}) {
 
     // I think it would be best if the intial state is set the existing data that exists inside of the database. We could have it be when the 
-    const initialState = {
-        position:position,
-        name:``,
-        type:``,
-        vintage:``,
-        grape:``,
-        locale:``,
-        body:``,
-        notes:``,
-    }
     
-    const [formState, setFormState] = useState(initialState)
+    const [formState, setFormState] = useState(itemState)
+    const [createBottle] = useMutation(CREATE_BOTTLE);
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        const mutationResponse = await createBottle({
+            variables: {
+                ...formState,
+                vintage:parseInt(formState.vintage)
+            }
+        })
+        setItemState({...formState})
+    }
+
+    // mutationResponse.data.createBottle model data from the database. 
 
     const handleBottleChange = (event) => {
         const {name, value} = event.target;
@@ -24,14 +30,12 @@ function BottleForm({position}) {
         });
     };
 
-    const handleFormSubmit = (event) => {
-        
-    }
+    
 
     return ( 
         <article className="bottleForm" >
             <h4>Cellar Position : {formState.position}</h4>
-            <form>
+            <form onSubmit={handleFormSubmit}>
                 <label htmlFor="name">Name</label>
                 <input 
                     type="text" 
@@ -50,7 +54,7 @@ function BottleForm({position}) {
                 />
                 <label htmlFor="vintage">Vintage</label>
                 <input 
-                    type="text" 
+                    type="number" 
                     name="vintage" 
                     id="bottleVintage" 
                     value={formState.vintage}
