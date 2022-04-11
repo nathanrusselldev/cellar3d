@@ -27,3 +27,7 @@ mutation login($username:String!, $password:String!) {
     }
 }
 `
+
+export const ADD_WINE = gql`
+mutation addWine()
+`

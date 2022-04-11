@@ -1,6 +1,4 @@
 // page to edit the information for the inner content for the nav buttons.
-import Auth from '../../utils/auth'
-
 const navInnerContent = {
     home: {
         content: `Home`,

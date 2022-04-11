@@ -41,15 +41,45 @@ const [formState, setFormState] = useState(
             <p>Please Fill out the form below to register as a user.</p>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="firstName">First Name</label>
-                <input type="text" name="first_name" required="required" placeholder="First Name" onChange={handleSignUp} />
+                <input 
+                    type="text" 
+                    name="first_name" 
+                    required="required"
+                    placeholder="First Name" 
+                    onChange={handleSignUp} 
+                />
                 <label htmlFor="lastName">Last Name</label>
-                <input type="text" name="last_name" required="required" placeholder="Last Name"onChange={handleSignUp} />
+                <input 
+                    type="text" 
+                    name="last_name" 
+                    required="required" 
+                    placeholder="Last Name"
+                    onChange={handleSignUp} 
+                />
                 <label htmlFor="email">Email Address</label>
-                <input type="email" name="email" required="required" placeholder="Email Address"onChange={handleSignUp} />
+                <input 
+                    type="email" 
+                    name="email" 
+                    required="required" 
+                    placeholder="Email Address"
+                    onChange={handleSignUp} 
+                />
                 <label htmlFor="username">UserName</label>
-                <input type="text" name="username" required="required" placeholder="Username"onChange={handleSignUp} />
+                <input 
+                    type="text" 
+                    name="username" 
+                    required="required" 
+                    placeholder="Username"
+                    onChange={handleSignUp} 
+                />
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" required="required" placeholder="Password"onChange={handleSignUp} />
+                <input 
+                    type="password" 
+                    name="password" 
+                    required="required" 
+                    placeholder="Password"
+                    onChange={handleSignUp} 
+                />
                 <input type="submit" value="Create Account" />
             </form>
             <p>Already have an account? 

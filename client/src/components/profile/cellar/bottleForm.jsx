@@ -16,8 +16,16 @@ function BottleForm({position}) {
     
     const [formState, setFormState] = useState(initialState)
 
-    const handleFormChange = ()=> {
-        setFormState()
+    const handleBottleChange = (event) => {
+        const {name, value} = event.target;
+        setFormState({
+            ...formState,
+            [name]:value
+        });
+    };
+
+    const handleFormSubmit = (event) => {
+        
     }
 
     return ( 
@@ -25,19 +33,61 @@ function BottleForm({position}) {
             <h4>Cellar Position : {formState.position}</h4>
             <form>
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" id="bottleName" value={formState.name} />
+                <input 
+                    type="text" 
+                    name="name" 
+                    id="bottleName" 
+                    value={formState.name}
+                    onChange={handleBottleChange} 
+                />
                 <label htmlFor="type">Type</label>
-                <input type="text" name="type" id="bottleType" value={formState.type} />
+                <input 
+                    type="text" 
+                    name="type" 
+                    id="bottleType" 
+                    value={formState.type}
+                    onChange={handleBottleChange} 
+                />
                 <label htmlFor="vintage">Vintage</label>
-                <input type="text" name="vintage" id="bottleVintage" value={formState.vintage} />
+                <input 
+                    type="text" 
+                    name="vintage" 
+                    id="bottleVintage" 
+                    value={formState.vintage}
+                    onChange={handleBottleChange} 
+                />
                 <label htmlFor="grape">Grape</label>
-                <input type="text" name="grape" id="bottleGrape" value={formState.grape} />
+                <input 
+                    type="text" 
+                    name="grape" 
+                    id="bottleGrape" 
+                    value={formState.grape}
+                    onChange={handleBottleChange} 
+                />
                 <label htmlFor="locale">Locale</label>
-                <input type="text" name="locale" id="bottleLocale" value={formState.locale} />
+                <input 
+                    type="text" 
+                    name="locale" 
+                    id="bottleLocale" 
+                    value={formState.locale}
+                    onChange={handleBottleChange} 
+                />
                 <label htmlFor="body">Body</label>
-                <input type="text" name="body" id="bottleBody" value={formState.body} />
+                <input 
+                    type="text" 
+                    name="body" 
+                    id="bottleBody" 
+                    value={formState.body}
+                    onChange={handleBottleChange} 
+                />
                 <label htmlFor="notes">Notes</label>
-                <input type="text" name="notes" id="bottleNotes" value={formState.notes} />
+                <input 
+                    type="text" 
+                    name="notes" 
+                    id="bottleNotes" 
+                    value={formState.notes}
+                    onChange={handleBottleChange} 
+                />
                 <input type="submit" value='SAVE' />
             </form>
         </article>

@@ -2,7 +2,6 @@ import NavButton from "./navButton";
 import navInnerContent from "./navInnerContent";
 import Auth from '../../utils/auth'
 
-
 function Navbar() {
 
     // check to see if the user is currently logged in and renders the corresponding nav bar buttons for interaction
@@ -16,12 +15,13 @@ function Navbar() {
                 <NavButton {...navInnerContent.home} />
                 <NavButton {...navInnerContent.profile} />
                 <NavButton {...navInnerContent.cellar} />
-                <NavButton {...navInnerContent.logout} />
+                <NavButton {...navInnerContent.logout} onClick={Auth.logout}/>
             </nav>
         )
     } else {
         return (
             <nav>
+                <NavButton {...navInnerContent.home} />
                 <NavButton {...navInnerContent.signUp} />
                 <NavButton {...navInnerContent.login} />
             </nav>
@@ -30,10 +30,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-/*
-    <NavButton {...navInnerContent.login} />
-    <NavButton {...navInnerContent.signUp} />
-    <NavButton {...navInnerContent.profile} />
-    <NavButton {...navInnerContent.cellar} />
-*/
