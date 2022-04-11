@@ -39,8 +39,6 @@ function BottleForm({position, itemState}) {
         });
     };
 
-    
-
     return ( 
         <article className="bottleForm" >
             <h4>Cellar Position : {formState.position + 1}</h4>

@@ -37,13 +37,10 @@ function CellarItem({position, item}) {
     // 
     
     return ( 
-        <article className="cellarItem" style={{width:`calc(100vw / 4 - 5px)`, height:250}}>
-            {/* for each position in a  grid render a buttonj like this one that passes its index */}
-            <button onClick={()=>handleClick(position)} style={{width:`100%`,height:`100%`}}>
+        <article className="cellarItem">
+            <button onClick={()=>handleClick(position)}>
                 {item?.name || "Add a bottle"}
-
             </button>
-            {/* When the status is currently set to true, then the form will be opened */}
             <Modal
                 isOpen={modalStatus}
                 onRequestClose={closeModal}
@@ -51,11 +48,10 @@ function CellarItem({position, item}) {
                 contentLabel="attempt 1"
                 >
                 {formState.status && <BottleForm position={position} itemState={item} />}
-                <button onClick={closeModal}>Close the modal</button>
+                <button onClick={closeModal} className="modalCloseBtn">X</button>
             </Modal>
         </article>
         )
-    
 }
 
 

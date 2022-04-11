@@ -22,35 +22,92 @@ nav {
 .cellarPage {
   width:100vw;
   height:var(--fullPageSize);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap:5px;
 }
 
 .cellarPage header {
-  width: 100vw;
+  width: calc(100vw - 90px);
+  padding:0px 45px;
   height: 65px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.cellarPage header img {
-  height: 65px;
-  display: inline-block;
+.cellarPage header a {
+  display:flex;
+  float: left;
+  font-family: monospace;
+  color: #202121;
+  font-size: 20px;
+  line-height: 20px;
+  text-decoration: none;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
-.cellarPage header a {
-  display:inline-block
+.cellarPage header a img {
+  height: 45px;
+  padding: 10px 0px;
 }
+
 
 .cellarPage .cellarItem {
-  width: calc(100vw / 4 - 5px);
-  display: block;
+  width: calc(25% - 5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: left;
-  z-index: 3;
+  height: calc((100vh - 155px) / 4);
+  background-color: aquamarine;
+
 }
 
-.cellarPage .cellarItem .bottleForm {
+.cellarItem button{
+  width:100%;
+  height:100%;
+}
+
+.bottleForm {
+  display: flex;
+  width: 510px;
+  padding:45px;
+  height: 360px;
+  background-color: aliceblue;
+  margin:calc(50vh - 225px) calc(50% - 300px);
+  position: relative;
+  text-align: center;
+}
+
+.bottleForm h4 {
+position: absolute;
+width: fit-content;
+left:10px;
+top:10px;
+}
+
+.bottleForm input {
+  width: 100%;
+}
+
+.modalCloseBtn {
+  position: absolute;
+  width: 35px;
+  height:35px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: #202121;
+  top: 0px;
+  font-family: monospace;
+  font-size: 35px;
+  line-height: 35px;
   display: block;
-  width: 100vw;
-  height: 100vh;
-  z-index: 15;
+  left: calc(50% - 335px);
+  top: calc(50vh - 270px);
 }
