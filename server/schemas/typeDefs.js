@@ -25,11 +25,12 @@ const typeDefs = gql`
     _id: ID
     cellarId: Int
     userId: Int
+    name: String
     position: Int
-    type: Int
-    vintage: Int
-    locale: Int
-    body: Int
+    type: String
+    vintage: String
+    locale: String
+    body: String
     notes: Int
   }
 
@@ -37,12 +38,17 @@ const typeDefs = gql`
     users: [User]!
     user(userid: ID!): User
     me: User
+    bottles: [Bottle]
+    cellar: Cellar
+
   }
 
   type Mutation {
-    createUser( username: String!, email: String!, first_name: String!, last_name: String!, password: String!): Auth
-    login(username: String!, password: String!): Auth
-
+    # User Routes
+    createUser( username: String!, email: String!, first_name: String!, last_name: String!, password: String!): Auth,
+    login(username: String!, password: String!): Auth,
+    # Cellar Routes
+    createBottle(cellarId: ID!, userId: ID!, name: String,  position: Int!, type: Int, vintage: Int, locale: Int, body: String, notes: String): Bottle
   } 
 `;
 

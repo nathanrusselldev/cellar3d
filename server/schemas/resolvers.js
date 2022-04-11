@@ -32,6 +32,10 @@ const resolvers = {
       }
       const token = signToken(user);
       return {token, user}
+    },
+    createBottle: async(parent, args, context) => {
+      const newbottle = await Bottle.create({...args, userId: context.user.id})
+      return newbottle
     }
   }
 }

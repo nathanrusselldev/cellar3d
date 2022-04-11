@@ -12,6 +12,10 @@ Bottle.init(
            autoIncrement: true,
            primaryKey: true,
         },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+         },
        position: {
            type: DataTypes.INTEGER,
            allowNull: false,
