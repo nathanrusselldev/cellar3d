@@ -16,6 +16,7 @@ const resolvers = {
   Mutation: {
     createUser: async (parent, args, context, info) => {
       const user = await User.create(args);
+<<<<<<< HEAD
       const cellar = await Cellar.create({ userId: user.id, })
       const token = signToken({ ...user, cellarId: cellar.id });
       return { user: await User.findByPk(user.id, { include: [{ model: Cellar }] }), token }
@@ -35,6 +36,37 @@ const resolvers = {
       }
       const token = signToken({ ...user, cellarId: user.cellar.id });
       return { token, user }
+=======
+      const cellar = await Cellar.create({userId: user.id, })
+      const dataToPass = {
+        email: user.email,
+        name: user.username,
+        id: user.id,
+        cellarId: cellar.id
+      }
+      const token = signToken(dataToPass);
+      return {user: await User.findByPk (user.id, {include: [{model: Cellar}]}), token}
+    },
+    login: async (parent, {username, password}) => {
+      const user = await User.findOne({ where: {username},
+        include: [{ model: Cellar }]})
+        const dataToPass = {
+          email: user.email,
+          name: user.username,
+          id: user.id,
+          cellarId: user.cellar.id
+        }
+        
+        if (!user) {
+          throw new AuthenticationError('Incorrect username or password.')
+        }
+        const correctPassword = await user.isCorrectPassword(password)
+        if (!correctPassword) {
+          throw new AuthenticationError('Incorrect username or password.');
+        }
+      const token = signToken(dataToPass);
+      return {token, user}
+>>>>>>> ca1c79b88f6694fd959469fcf4f1089775a25e39
     },
     createBottle: async (parent, args, context) => {
       const newbottle = await Bottle.create({ ...args, userId: context.user.id, cellarId: context.user.cellarId })
