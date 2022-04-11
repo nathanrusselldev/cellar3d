@@ -29,8 +29,8 @@ mutation login($username:String!, $password:String!) {
 `
 
 export const CREATE_BOTTLE = gql`
-mutation CreateBottle($cellarId: ID!, $userId: ID!, $position: Int!, $name: String, $type: Int, $vintage: Int, $locale: Int, $body: String, $notes: String) {
-  createBottle(cellarId: $cellarId, userId: $userId, position: $position, name: $name, type: $type, vintage: $vintage, locale: $locale, body: $body, notes: $notes) {
+mutation CreateBottle($position: Int!, $name: String, $type: String, $vintage: Int, $locale: String, $body: String, $notes: String) {
+  createBottle(position: $position, name: $name, type: $type, vintage: $vintage, locale: $locale, body: $body, notes: $notes) {
     name
     type
     vintage
