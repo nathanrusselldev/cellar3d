@@ -2,11 +2,19 @@ import { useState } from "react";
 import {useMutation} from '@apollo/client';
 import {CREATE_BOTTLE} from '../../../utils/mutations'
 
-function BottleForm({position, setItemState, itemState}) {
+function BottleForm({position, itemState}) {
 
     // I think it would be best if the intial state is set the existing data that exists inside of the database. We could have it be when the 
     
-    const [formState, setFormState] = useState(itemState)
+    const [formState, setFormState] = useState(itemState || {
+        name: '',
+        position: position,
+        vintage: 0,
+        locale: '',
+        type: '',
+        body: '',
+        notes: ''
+    })
     const [createBottle] = useMutation(CREATE_BOTTLE);
 
     const handleFormSubmit = async (event) => {
@@ -17,7 +25,8 @@ function BottleForm({position, setItemState, itemState}) {
                 vintage:parseInt(formState.vintage)
             }
         })
-        setItemState({...formState})
+        // reload insead, or update the cache object
+        window.location.reload();
     }
 
     // mutationResponse.data.createBottle model data from the database. 
@@ -34,7 +43,7 @@ function BottleForm({position, setItemState, itemState}) {
 
     return ( 
         <article className="bottleForm" >
-            <h4>Cellar Position : {formState.position}</h4>
+            <h4>Cellar Position : {formState.position + 1}</h4>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor="name">Name</label>
                 <input 
@@ -58,14 +67,6 @@ function BottleForm({position, setItemState, itemState}) {
                     name="vintage" 
                     id="bottleVintage" 
                     value={formState.vintage}
-                    onChange={handleBottleChange} 
-                />
-                <label htmlFor="grape">Grape</label>
-                <input 
-                    type="text" 
-                    name="grape" 
-                    id="bottleGrape" 
-                    value={formState.grape}
                     onChange={handleBottleChange} 
                 />
                 <label htmlFor="locale">Locale</label>
